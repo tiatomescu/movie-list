@@ -6,6 +6,7 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
+//R
 app.get('/movies', (req, res) => {
   knex('movies')
   .select('*')
@@ -20,7 +21,42 @@ app.get('/movies/:id', async (req, res) => {
   .select('*')
   .where('id', req.params.id)
 
-  foundMovie.length == 1 ? res.status(200).json(foundMovie) : res.status(404).json({message: "Movie not found :("})
+  foundMovie.length == 1
+    ? res.status(200).json(foundMovie)
+    : res.status(404).json({message: "Movie not found :("})
+})
+
+//C
+app.post('/movies', (req, res) => {
+  let { title } = req.body
+  knex('movies')
+  .insert(req.body)
+  .then(() => {
+    res.status(201).json({message: `${title} added to movie list :D`})
+  })
+})
+
+//U
+app.patch('/movies/:id', async (req, res) => {
+  const updatedMovie = await knex('movies')
+  .where('id', req.params.id)
+  .update(req.body)
+
+  updatedMovie == 1
+    ? res.status(200).json({message: 'Movie updated successfully :D'})
+    : res.status(404).json({message: 'Movie does not exist :('})
+})
+
+//D
+app.delete('/movies/:id', (req, res) => {
+  knex('movies')
+  .where('id', req.params.id)
+  .del()
+  .then((rowsDeleted) => {
+    rowsDeleted == 1
+      ? res.status(200).json({message: "Movie deleted from system >:)"})
+      : res.status(404).json({message: "Movie does not exist :("})
+  })
 })
 
 module.exports = app;
