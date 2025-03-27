@@ -1,5 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Srisakdi:wght@400;700&display=swap');
+
+.srisakdi-regular {
+  font-family: "Srisakdi", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.srisakdi-bold {
+  font-family: "Srisakdi", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-condensed {
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Srisakdi, Roboto Condensed;
   line-height: 1.5;
   font-weight: 400;
 
@@ -33,6 +54,10 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+p {
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 button {

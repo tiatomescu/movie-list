@@ -3,8 +3,12 @@ const app = express();
 const knex = require('knex')(require('../knexfile.js')["development"]);
 const cors = require('cors');
 
+const corsOptions = {
+  origin: "http://localhost:5173"
+};
+
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 //R
 app.get('/movies', (req, res) => {
