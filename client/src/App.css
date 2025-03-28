@@ -25,6 +25,20 @@
   grid-column: 1;
   background-color: aliceblue;
   border-radius: 1rem;
+  width: 30vw;
+}
+
+.movie-list {
+  height: 75%;
+  width: 100%;
+  contain: strict;
+  overflow: scroll;
+  padding: 10px;
+}
+
+.movie-card {
+  height: 30%;
+  width: 90%;
 }
 
 .add {
