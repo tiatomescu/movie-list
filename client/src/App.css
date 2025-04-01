@@ -25,15 +25,25 @@
   grid-column: 1;
   background-color: aliceblue;
   border-radius: 1rem;
-  width: 30vw;
+  width: 40vw;
 }
 
-.movie-list {
+.my-movies {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
   height: 75%;
   width: 100%;
+  gap: 10px;
+  margin: 10px;
+}
+
+.movie-list, .watched-list {
   contain: strict;
   overflow: scroll;
-  padding: 10px;
+  height: 100%;
+  width: 50%;
 }
 
 .movie-card {

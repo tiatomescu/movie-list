@@ -14,6 +14,7 @@ app.use(cors(corsOptions));
 app.get('/movies', (req, res) => {
   knex('movies')
   .select('*')
+  .orderBy('id')
   .then(movie_list => {
     let movieList = movie_list.map(movie => {return {...movie}})
     res.status(200).json(movieList);
